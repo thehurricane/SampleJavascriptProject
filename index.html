@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Vote</title>
+<style type="text/css">
+body {background-image:url("http://www.crwflags.com/fotw/images/u/us.gif"); background-image:repeat;color: #00FF00;}
+</style>
+</head>
+<body>
+
+<script>
+var mouseOverCount = 0;
+function changePosition(myButton) {
+	if (mouseOverCount == 0) {
+		myButton.style.position="absolute";
+		myButton.style.top="50%";
+		myButton.style.left="50%";
+		mouseOverCount++;
+	} else if (mouseOverCount == 1) {
+		myButton.style.position="absolute";
+		myButton.style.top="20%";
+		myButton.style.left="40%";
+		mouseOverCount++;
+	} else if (mouseOverCount == 2) {
+		myButton.style.position="absolute";
+		myButton.style.top="70%";
+		myButton.style.left="10%";
+		mouseOverCount++;
+	} else if (mouseOverCount == 3) {
+		myButton.style.position="absolute";
+		myButton.style.top="40%";
+		myButton.style.left="20%";
+		mouseOverCount++;
+	} else if (mouseOverCount > 3) {
+		myButton.value="I hate America, so Barack Obama";
+	}
+}
+function mouseOffRestoreText(myButton) {
+	myButton.value="Barack Obama (Democrat candidate)";
+}
+function changeText(myButton) {
+	myButton.value= "Mitt Romney (Republican candidate)";
+	mouseOverCount = -1;
+}
+function displayThankYou() {
+	document.getElementById('invisible').style.display = 'block';
+	document.getElementById('visible').style.display = 'none';
+}
+</script>
+<div id="visible" style="display: block;">
+<h1>Official <del>Republican</del> American Voting Page</h1>
+<h2>Vote for the next president!</h2>
+
+<!--<input type="button" value="Barack Obama (Democrat candidate)" onmouseover="changePosition(this)" onclick="this.value=\"Mitt Romney (Republican candidate)\""/>-->
+<input type="button" value="Barack Obama (Democrat candidate)" onmouseover="changePosition(this)" onmouseout="mouseOffRestoreText(this)" onmousedown="changeText(this)" onclick="displayThankYou()"/>
+<br/>
+<input type="button" value="Mitt Romney (Republican candidate"/>
+</div>
+<div id="invisible" style="display: none;">
+<h2>Thank you for voting for Mitt Romney!</h2>
+<p><img src="http://1.bp.blogspot.com/-Q8qTlCkg7mU/T-za-iSc5kI/AAAAAAAArVM/7ECn9zh1830/s1600/3647rr.jpg""/></p>
+</div>
+
+</body>
+</html>
